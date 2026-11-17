@@ -19,5 +19,14 @@ class Exchange:
     def history(self, subject):
         return history(self.connection, subject)
 
+    def receipt(self, delivery_id):
+        return self.delivery.receipt(delivery_id)
+
+    def disclose(self, delivery_id):
+        return self.delivery.disclose(delivery_id)
+
+    def stale(self, product_id, revision):
+        return self.products.stale(product_id, revision)
+
     def close(self):
         self.connection.close()
